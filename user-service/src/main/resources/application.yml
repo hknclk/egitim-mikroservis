@@ -1,0 +1,28 @@
+
+
+server:
+  port: 0
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/egitim-user-service?useUnicode=true&characterEncoding=UTF-8&verifyServerCertificate=false&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Istanbul
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+
+eureka:
+  client:
+    instance-info-replication-interval-seconds: 5
+    registry-fetch-interval-seconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/
